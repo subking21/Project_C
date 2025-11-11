@@ -83,4 +83,4 @@ Clash Royale assets & data © Supercell
 
 API powered by RoyaleAPI
 
-Built by [Your Name]
+Built by Subhaan
