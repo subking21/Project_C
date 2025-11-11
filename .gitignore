@@ -1,0 +1,11 @@
+# Ignore backend dependencies
+Backend/node_modules/
+
+# Environment variables (if you ever add them)
+Backend/.env
+
+# macOS system files
+.DS_Store
+
+# Logs
+*.log

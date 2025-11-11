@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clash Royale Stats Viewer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Clash Royale Stats Viewer</h1>
+
+    <p class="note">
+      ⚠️ Use your <strong>Developer API Key</strong> from 
+      <a href="https://developer.clashroyale.com" target="_blank">developer.clashroyale.com</a> 
+      (not your in-game token).
+    </p>
+
+    <input type="text" id="apiKey" placeholder="Enter your Developer API Key">
+    <input type="text" id="playerTag" placeholder="Enter your Player Tag (e.g. PYP8L9YQP)">
+    <button id="getStats">Get Stats</button>
+
+    <div id="output"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
