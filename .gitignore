@@ -1,7 +1,7 @@
 # Ignore backend dependencies
 Backend/node_modules/
 
-# Environment variables (if you ever add them)
+# Environment variables
 Backend/.env
 
 # macOS system files
