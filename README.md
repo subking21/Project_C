@@ -67,7 +67,7 @@ Paste your key into the input box on the webpage — the app never saves it.
 ## 🛠️ Development Notes
 
 All main files are in the root directory:
-
+```bash
 Project/
 ├── Backend/
 │   ├── server.js
@@ -76,7 +76,7 @@ Project/
     ├── index.html
     ├── style.css
     └── script.js
-
+```
 ## 📄 License
 
 This project is open-source and available under the MIT License.
