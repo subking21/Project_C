@@ -1,10 +1,6 @@
 
 # 🏆 Clash Royale Battle Log Viewer
 
-**WORK IN PROGRESS**
-
-**NOTE: I'm still working on this project their are still problems with the code**
-
 A simple web app that lets you view your last 15 Clash Royale games using your own API key from the official Royale API.
 It displays both decks side-by-side (you vs opponent), shows whether you won or lost, and highlights the top 8 cards you’ve lost to most.
 
@@ -49,8 +45,7 @@ http://localhost:3000
 
 ### 4️⃣ Open the website
 
-Once the server is running, open index.html in your browser.
-You can enter your Clash Royale API key and player tag to load your stats.
+Once the server is running, go to http://localhost:3000 in your browser.
 
 ## 🔑 API Key Setup
 
