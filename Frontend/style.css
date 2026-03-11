@@ -70,13 +70,65 @@ button:hover {
 
 /* One match row */
 .battle {
-  background: #222831;
+  background: #1a1d23;
   border-radius: 8px;
-  padding: 5px 8px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: stretch;
+}
+
+.battle-result {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-weight: bold;
+  font-size: 0.7rem;
+  padding: 8px 6px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+.win-banner { background: #1a7a3f; color: #00ff99; }
+.loss-banner { background: #7a1a1a; color: #ff5555; }
+.draw-banner { background: #4a4a1a; color: #ffcc00; }
+
+.battle-body {
+  flex: 1;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.battle-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-name {
+  font-size: 0.7rem;
+  color: #aaa;
+  width: 80px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cards {
+  display: flex;
+  gap: 3px;
+  flex-wrap: nowrap;
+}
+
+.crowns {
+  font-size: 0.75rem;
+  margin-left: auto;
+  color: #ffcc00;
 }
 
 /* Deck layout */
@@ -89,9 +141,9 @@ button:hover {
 }
 
 .card {
-  width: 12px; /* ✅ Very small now */
-  height: 14px;
-  border-radius: 2px;
+  width: 80px; 
+  height: 90px;
+  border-radius: 5px;
   overflow: hidden;
   background: #2c303a;
 }

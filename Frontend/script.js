@@ -45,24 +45,29 @@ document.getElementById("getStats").addEventListener("click", async () => {
 
       if (!playerTeam || !opponent) return;
 
-      const result = playerTeam.crowns > opponent.crowns ? "🏆 Win" :
-                     playerTeam.crowns < opponent.crowns ? "❌ Loss" : "⚖️ Draw";
+      const playerCrowns = playerTeam.crowns ?? 0;
+      const opponentCrowns = opponent.crowns ?? 0;
+      const isWin = playerCrowns > opponentCrowns;
+      const resultText = isWin ? "VICTORY" : playerCrowns < opponentCrowns ? "LOSS" : "DRAW";
+      const resultClass = isWin ? "win" : playerCrowns < opponentCrowns ? "loss" : "draw";
 
       html += `
-        <div class="battle">
-          <h4>Battle ${index + 1}: ${result}</h4>
-          <div class="deck-container">
-            <div class="deck">
-              <strong>Your Deck:</strong>
+        <div class="battle ${resultClass}">
+          <div class="battle-result ${resultClass}-banner">${resultText}</div>
+          <div class="battle-body">
+            <div class="battle-row">
+              <span class="player-name">YOU</span>
               <div class="cards">
-                ${playerTeam.cards.map(c => `<img src="${c.iconUrls.medium}" title="${c.name}">`).join("")}
+                ${playerTeam.cards.map(c => `<div class="card"><img src="${c.iconUrls.medium}" title="${c.name}"></div>`).join("")}
               </div>
+              <span class="crowns">👑 ${playerCrowns}</span>
             </div>
-            <div class="deck">
-              <strong>Opponent's Deck:</strong>
+            <div class="battle-row">
+              <span class="player-name">${opponent.name}</span>
               <div class="cards">
-                ${opponent.cards.map(c => `<img src="${c.iconUrls.medium}" title="${c.name}">`).join("")}
+                ${opponent.cards.map(c => `<div class="card"><img src="${c.iconUrls.medium}" title="${c.name}"></div>`).join("")}
               </div>
+              <span class="crowns">👑 ${opponentCrowns}</span>
             </div>
           </div>
         </div>
