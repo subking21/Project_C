@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require("express");
 const axios = require("axios");
 const path = require("path");
@@ -11,10 +13,16 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../Frontend")));
 
 app.post("/api/player", async (req, res) => {
-  const { apiKey, playerTag } = req.body;
 
-  if (!apiKey || !playerTag) {
-    return res.status(400).json({ error: "Missing API key or player tag" });
+  const { playerTag } = req.body;
+  const apiKey = process.env.API_KEY;
+
+  if (!apiKey) {
+    return res.status(500).json({ error: "API key not configured in server" });
+  }
+
+  if (!playerTag) {
+    return res.status(500).json({ error: "Missing player tag" });
   }
 
   const cleanTag = playerTag.replace("#", "").trim();
@@ -66,29 +74,29 @@ app.post("/api/player", async (req, res) => {
       }
     });
 
-    const topLostCards = Object.entries(lostCardCounts)
-      .sort((a, b) => b[1] - a[1])
-      .slice(0, 8)
-      .map(([name, count]) => ({ name, count }));
+      const topLostCards = Object.entries(lostCardCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8)
+        .map(([name, count]) => ({ name, count }));
 
-    res.json({
-      player: playerRes.data,
-      battles: validBattles,
-      topLostCards,
-    });
-  } catch (err) {
-    if (err.response) {
-      console.error("API Error:", err.response.status, err.response.data);
-      res.status(err.response.status).json(err.response.data);
-    } else {
-      console.error("Error:", err.message);
-      res.status(500).json({ error: err.message });
+      res.json({
+        player: playerRes.data,
+        battles: validBattles,
+        topLostCards,
+      });
+    } catch (err) {
+      if (err.response) {
+        console.error("API Error:", err.response.status, err.response.data);
+        res.status(err.response.status).json(err.response.data);
+      } else {
+        console.error("Error:", err.message);
+        res.status(500).json({ error: err.message });
+      }
     }
-  }
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../Frontend/index.html"));
-});
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../Frontend/index.html"));
+  });
 
 app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));

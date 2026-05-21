@@ -1,10 +1,10 @@
 document.getElementById("getStats").addEventListener("click", async () => {
-  const apiKey = document.getElementById("apiKey").value.trim();
   const playerTag = document.getElementById("playerTag").value.trim();
   const output = document.getElementById("output");
 
-  if (!apiKey || !playerTag) {
-    output.innerHTML = "<p style='color: red;'>Please enter both your API Key and Player Tag.</p>";
+
+  if (!playerTag) {
+    output.innerHTML = "<p style='color: red;'>Please enter your Player Tag.</p>";
     return;
   }
 
@@ -14,7 +14,7 @@ document.getElementById("getStats").addEventListener("click", async () => {
     const response = await fetch("/api/player", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ apiKey, playerTag }),
+      body: JSON.stringify({ playerTag }),
     });
 
     const data = await response.json();

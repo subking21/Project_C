@@ -13,7 +13,7 @@ body {
 h1 {
   margin-top: 20px;
   font-size: 2rem;
-  color: #ffcc00;
+  color: #00ff08;
 }
 
 .container {
@@ -42,13 +42,13 @@ input {
   border-radius: 6px;
   border: none;
   outline: none;
-  width: 180px;
+  width: 245px;
   background: #262a33;
   color: #fff;
 }
 
 button {
-  background: #ffcc00;
+  background: #00ff08;
   color: #000;
   padding: 6px 12px;
   border: none;
@@ -94,7 +94,7 @@ button:hover {
 
 .win-banner { background: #1a7a3f; color: #00ff99; }
 .loss-banner { background: #7a1a1a; color: #ff5555; }
-.draw-banner { background: #4a4a1a; color: #ffcc00; }
+.draw-banner { background: #4a4a1a; color: #ff0000; }
 
 .battle-body {
   flex: 1;
@@ -212,6 +212,6 @@ button:hover {
   width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #ffcc00;
+  background: #00ffff;
   border-radius: 8px;
 }
