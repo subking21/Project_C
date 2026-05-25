@@ -4,6 +4,8 @@
 A simple web app that lets you view your last 15 Clash Royale games using your own API key from the official Royale API.
 It displays both decks side-by-side (you vs opponent), shows whether you won or lost, and highlights the top 8 cards you’ve lost to most.
 
+Heres the live link: https://project-c-oqj4.onrender.com/
+
 ## 🚀 Features
 
 - View your 15 most recent battles.
